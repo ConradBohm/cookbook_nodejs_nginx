@@ -19,3 +19,7 @@ describe service 'nginx' do
   it { should be_running }
   it { should be_enabled }
 end
+
+describe http('http://localhost', enable_remote_worker: true) do
+  its('status') { should cmp 502 }
+end

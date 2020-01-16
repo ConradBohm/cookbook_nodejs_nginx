@@ -1,4 +1,10 @@
 # node_sample
 
-TODO: Enter the cookbook description here.
+cgef commands:
+- chef generate cookbook <name>
+- chef generate template <name.conf>
 
+- file and folder structure
+- spec folder -> default_spec.rb
+- test folder -> default_test.rb
+- kitchen.yml
