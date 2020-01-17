@@ -8,7 +8,7 @@
 include_recipe 'nodejs'
 include_recipe 'apt'
 
-# node['nodejs']['npm']['apt']
+# node['nodejs']['npm']['apt']?
 
 
 apt_update 'update_sources' do
@@ -16,7 +16,7 @@ apt_update 'update_sources' do
 end
 
 package 'nginx'
-package 'npm'
+# package 'npm'
 
 # resource service
 service 'nginx' do
@@ -28,6 +28,7 @@ nodejs_npm 'pm2'
 # resource template
 template '/etc/nginx/sites-available/proxy.conf' do
   source 'proxy.conf.erb'
+  variables proxy_port: node['nginx']['proxy_port']
   notifies :restart, 'service[nginx]'
 end
 
